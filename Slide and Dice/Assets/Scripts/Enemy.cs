@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public int hpMax, hp;
     public Enemy[] fragments;
     public Rigidbody thisRigidbody;
-    [SerializeField] float moveSpeed;
+    [SerializeField] public float moveSpeed;
     private float invincibleFrame = 1, invincibleFrameElapse = 0; 
     public float sinCosElapse;
     
@@ -95,6 +95,7 @@ public class Enemy : MonoBehaviour
         //Vector3 pushbackDirection = ((transform.position - player.transform.position).normalized +
         //            new Vector3(side, 1, 0)) * Random.Range(1, 5);
         thisRigidbody.velocity = pushbackDirection;
+        StopCoroutine(InvincibleBlink());
         StartCoroutine(InvincibleBlink());
     }
 

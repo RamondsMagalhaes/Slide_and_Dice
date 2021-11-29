@@ -10,6 +10,24 @@ public class GameManager : MonoBehaviour
     public static int unlockedLevels, unlockedSwords, unlockedShields;
     public static int selectedSword, selectedShield;
     public static int controller;
+    public static bool IsGameActive
+    {
+        get { return _isGameActive; }
+        set
+        {
+            _isGameActive = value;
+            if (_isGameActive)
+            {
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+        }
+    }
+    private static bool _isGameActive;
+    public static bool isDead;
     void Awake()
     {
         if (gameManager != null && gameManager != this)
@@ -20,6 +38,8 @@ public class GameManager : MonoBehaviour
         {
             gameManager = this;
             DontDestroyOnLoad(this);
+            IsGameActive = true;
+            isDead = false;
             exp = PlayerPrefs.GetInt("exp");
             unlockedLevels = PlayerPrefs.GetInt("unlockedLevels");
             if (unlockedLevels == 0) unlockedLevels = 10;
@@ -38,7 +58,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("selectedSword: " + selectedSword);
 
             selectedShield = PlayerPrefs.GetInt("selectedShield");
-            if (selectedShield == 0) selectedShield = 3;
+            if (selectedShield == 0) selectedShield = 1;
             Debug.Log("selectedShield: " + selectedShield);
 
             controller = 0;//PlayerPrefs.GetInt("controller");
@@ -48,9 +68,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void LoadSelectedLevel()
     {
-        
+        isDead = false;
+        IsGameActive = true;
+    }
+    public static void LoadMainMenu()
+    {
+
     }
 }

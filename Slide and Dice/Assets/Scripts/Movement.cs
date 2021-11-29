@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     {
         thisRigidbody = GetComponent<Rigidbody>();
         playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Pause.started += context => Pause();
         playerInputActions.Player.Enable();
     } 
 
@@ -19,6 +20,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
+        
     }
     public void MovePlayer()
     {
@@ -26,4 +28,10 @@ public class Movement : MonoBehaviour
         Vector3 directionVector = new Vector3( inputVector.x, inputVector.y, 0 );
         thisRigidbody.AddForce(directionVector * speed, ForceMode.Force);
     }
+    void Pause()
+    {
+        if (!GameManager.isDead) FindObjectOfType<UIStage>().PauseScreen(GameManager.IsGameActive);
+
+    }
+
 }

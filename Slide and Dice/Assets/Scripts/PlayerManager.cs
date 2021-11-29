@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> swords, shields;
+    [SerializeField] UIStage uiStage;
     public ParticleSystem impactParticleSystem;
     private AudioSource thisAudioSource;
     [SerializeField] private GameObject model;
@@ -48,7 +49,8 @@ public class PlayerManager : MonoBehaviour
     }
     void Die()
     {
-        Debug.Log("Dead");
+        GameManager.isDead = true;
+        uiStage.DeathScreen();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -74,7 +76,10 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         if (invincibleFrameElapse <= invincibleFrame) invincibleFrameElapse += Time.deltaTime;
+        
     }
+
+
 
     private IEnumerator InvincibleBlink()
     {

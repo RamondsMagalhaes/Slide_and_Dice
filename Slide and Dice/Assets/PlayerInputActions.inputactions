@@ -14,10 +14,26 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Orbit",
+                    "name": "OrbitMouse",
                     "type": "Value",
                     "id": "25791dc1-5f33-4e40-8fc8-17bb9ae2caa8",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "OrbitGeneric",
+                    "type": "Value",
+                    "id": "fe7f612c-0099-4a3c-b8df-136e7f60d160",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "c60501e2-1d55-4a64-9569-56ce749bdd3f",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -91,23 +107,67 @@
                 },
                 {
                     "name": "",
-                    "id": "b08f9d0a-c856-48fb-870b-3e7069dcdcb7",
-                    "path": "<Mouse>/position",
+                    "id": "9d6a008d-5452-4bf4-b267-e4a89c1d0c82",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Orbit",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "9f59f665-ba92-4a4e-9f59-38affc801711",
+                    "id": "b08f9d0a-c856-48fb-870b-3e7069dcdcb7",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OrbitMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f96650e2-9162-4029-b385-ba97227b2302",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Orbit",
+                    "action": "OrbitGeneric",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b04d9782-8707-46ac-9ead-4b43b856357c",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43c2a453-6ac1-4928-bba7-01469c6d0579",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b88c6d4-8e15-4008-811d-7aa93915ca63",
+                    "path": "<HID:: USB Gamepad          >/button10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
